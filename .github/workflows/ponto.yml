@@ -1,0 +1,33 @@
+name: Batida de Ponto Automática
+
+on:
+  schedule:
+    # 8h BR = 11h UTC (seg-sex)
+    - cron: '0 11 * * 1-5'
+    # 18h BR = 21h UTC (seg-sex)
+    - cron: '0 21 * * 1-5'
+  workflow_dispatch:  # Botão manual
+
+jobs:
+  bater-ponto:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Rodar Cypress
+        uses: cypress-io/github-action@v6
+        with:
+          spec: cypress/e2e/bater-ponto.cy.js
+          headed: false
+        env:
+          CYPRESS_usuario: ${{ secrets.CYPRESS_USUARIO }}
+          CYPRESS_senha: ${{ secrets.CYPRESS_SENHA }}
+          CYPRESS_baseUrl: ${{ secrets.CYPRESS_BASE_URL }}

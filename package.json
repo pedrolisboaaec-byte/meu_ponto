@@ -1,0 +1,22 @@
+{
+  "name": "meu_ponto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open --e2e",
+    "cy:run": "cypress run --e2e",
+    "cy:headed": "cypress run --headed --e2e",
+    "ponto:gui": "cypress open --e2e --config integrationFolder=cypress/e2e",
+    "ponto:run": "cypress run --e2e --spec 'cypress/e2e/bater-ponto.cy.js'",
+    "ponto:headed": "cypress run --headed --e2e --spec 'cypress/e2e/bater-ponto.cy.js'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cypress": "^15.11.0"
+  }
+}
