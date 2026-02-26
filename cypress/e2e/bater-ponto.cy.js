@@ -9,8 +9,6 @@ describe('Batida de ponto automática', () => {
     cy.get('[name="cpf"]').type('050.472.733-85'); // Substitua pelo CPF real
   
   
-  
-  
   });
 });
 

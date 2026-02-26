@@ -12,7 +12,6 @@ Cypress.Commands.add('baterPonto', () => {
   
 });
 
-
 // Cypress.Commands.add('loginSerasa', () => {
 //   cy.visit('/');
 //   cy.get('#adopt-reject-all-button', { timeout: 10000 }).click();
